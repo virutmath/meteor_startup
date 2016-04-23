@@ -1,0 +1,32 @@
+<div class="page-header">
+   <h1>List question</h1>
+   <small>Event: {{qe.currentQuiz.title}}</small>
+</div>
+<div class="row">
+   <div class="col-xs-3">
+      <button class="btn btn-block btn-primary">Create question</button>
+   </div>
+</div>
+<div class="row">
+   <div class="col-xs-12">
+      <table class="table table-bordered">
+         <tr class="bg-primary">
+            <th>#No</th>
+            <th>Question title</th>
+            <th>Answer</th>
+            <th>Score</th>
+            <th>Action</th>
+         </tr>
+         <tr ng-repeat="question in qe.listQuestion">
+            <td class="text-center">{{$index}}</td>
+            <td class="text-left">{{question.title}}</td>
+            <td class="text-center">{{question.correctAnswer}}</td>
+            <td class="text-center">{{question.score}}</td>
+            <td class="text-center">
+               <a ui-sref="admin.questionEdit">Edit</a>
+               <a href="javascript:;" ng-click="qe.deleteQuestion(question)">Delete</a>
+            </td>
+         </tr>
+      </table>
+   </div>
+</div>

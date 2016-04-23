@@ -5,6 +5,10 @@ Schema.Quiz = new SimpleSchema({
 		type : String,
 		label : "Quiz title"
 	},
+	description: {
+		type: String,
+		optional: true
+	},
 	user : {
 		type : String,
 		label : "Owner of Quiz"
@@ -21,6 +25,9 @@ Schema.Quiz = new SimpleSchema({
 	shortUrl: {
 		type: String,
 		optional: true
+	},
+	type: {
+		type: Number
 	}
 });
 QuizCollection.attachSchema(Schema.Quiz);
@@ -62,3 +69,32 @@ Schema.User = new SimpleSchema({
 	}
 });
 Meteor.users.attachSchema(Schema.User);
+
+
+Schema.Question = new SimpleSchema({
+	content: {
+		type : String,
+		label: "Content is require"
+	},
+	quiz: {
+		type : String,
+		label : "Quiz of question is require"
+	},
+	answers : {
+		type: [String],
+		label : "Answers is require"
+	},
+	correctAnswer: {
+		type : String,
+		label : "Correct answer is require"
+	},
+	score : {
+		type : Number,
+		optional: true
+	},
+	type: {
+		type: Number,
+		optional: true
+	}
+});
+QuestionCollection.attachSchema(Schema.Question);

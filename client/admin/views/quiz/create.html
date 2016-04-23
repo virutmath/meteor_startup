@@ -1,0 +1,50 @@
+<div class="page-header">
+   <h1>Create your event</h1>
+</div>
+<form ng-submit="qi.createQuiz()">
+
+
+   <div class="form-group">
+      <label>Event name</label>
+      <input type="text" class="form-control" ng-model="qi.theQuiz.title" placeholder="Input your event name">
+   </div>
+   <div class="form-group">
+      <label>Time of each question</label>
+      <input type="text" class="form-control" ng-model="qi.theQuiz.time" placeholder="Default is 30 seconds">
+   </div>
+   <div class="form-group">
+      <label>Themes</label>
+      <div class="row">
+         <div class="col-xs-3">
+            <input type="radio" value="1" ng-model="qi.theQuiz.theme">
+            Light
+         </div>
+         <div class="col-xs-3">
+            <input type="radio" value="2" ng-model="qi.theQuiz.theme">
+            Dark
+         </div>
+      </div>
+   </div>
+   <div class="form-group">
+      <label>Event type</label>
+      <div class="row">
+         <div class="col-xs-3">
+            <input type="radio" value="1" ng-model="qi.theQuiz.type">
+            Ranking by score
+         </div>
+         <div class="col-xs-3">
+            <input type="radio" value="2" ng-model="qi.theQuiz.type">
+            Knockout
+         </div>
+      </div>
+   </div>
+   <div class="form-group">
+      <label>Event description</label>
+      <div class="row">
+         <div class="col-xs-12">
+            <textarea ng-model="qi.theQuiz.description" cols="30" rows="10"></textarea>
+         </div>
+      </div>
+   </div>
+   <button class="btn btn-primary">Submit</button>
+</form>

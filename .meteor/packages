@@ -24,3 +24,5 @@ aldeed:collection2
 alanning:roles
 twbs:bootstrap
 angular
+angular-meteor-auth
+angularui:angular-ui-router
