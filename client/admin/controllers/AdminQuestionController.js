@@ -4,7 +4,6 @@ quizModule.controller('AdminQuestionController', function ($state, $stateParams,
 		$state.go('login');
 	}
 	var selfCtrl = this;
-	selfCtrl.rt = null;
 	reactiveContext.subscribe('quiz-list-creator', ()=>[$stateParams.quizId]);
 	reactiveContext.subscribe('question-list-creator', ()=>[$stateParams.quizId]);
 	selfCtrl.theQuestion = {
@@ -57,7 +56,7 @@ quizModule.controller('AdminQuestionController', function ($state, $stateParams,
 		}
 	};
 	selfCtrl.postEditQuestion = function () {
-
+		
 	};
 
 	//private function

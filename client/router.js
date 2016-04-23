@@ -20,12 +20,13 @@ quizModule.config(function ($urlRouterProvider, $stateProvider, $locationProvide
 			controllerAs: 'qi'
 		})
 		.state('admin.quizEdit',{
-			url: '/quiz/edit',
+			url: '/quiz/edit/:quizId',
 			controller: 'AdminQuizController',
 			controllerAs: 'qi'
 		})
 		.state('admin.quizList',{
 			url: '/quiz/list',
+			templateUrl : ADMIN_TEMPLATE_PATH + '/quiz/list.html',
 			controller: 'AdminQuizController',
 			controllerAs: 'qi'
 		})
