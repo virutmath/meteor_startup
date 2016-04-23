@@ -1,0 +1,23 @@
+<div class="page-header">
+   <h1><small>Event</small> {{qi.currentQuiz.title}}</h1>
+</div>
+<div class="row">
+   <div class="margin-20b"></div>
+</div>
+<div class="row">
+   <div class="col-xs-12 quiz-publish-detail">
+      Date : <abbr title="">{{qi.currentQuiz.createdAt | date : "medium"}}</abbr><br/>
+      Number question : <kbd>{{qi.listQuestion.length}}</kbd><br/>
+      Game type : <span class="label label-info">{{quiz.type == CONSTANTS.QUIZ_TYPE.ranking ? "Ranking" : "Knockout"}}</span>
+   </div>
+</div>
+<div class="row">
+   <div class="margin-30b"></div>
+</div>
+<div class="row">
+   <div class="col-xs-12">
+      <div class="qr-code">
+         <qrcode data="{{qi.currentQuiz.shortUrl}}" version="2"  href="{{qi.currentQuiz.shortUrl}}" size="250"></qrcode>
+      </div>
+   </div>
+</div>

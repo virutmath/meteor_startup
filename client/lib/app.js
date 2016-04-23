@@ -18,12 +18,13 @@ quizModule = angular.module('quizSystem'
 		}
 	};
 });
-;
 
 quizModule.value("CONSTANTS", {
 	QUIZ_THEME: QUIZ_THEME,
 	QUIZ_TYPE: QUIZ_TYPE,
-	QUESTION_TYPE: QUESTION_TYPE
+	QUESTION_TYPE: QUESTION_TYPE,
+	QUESTION_STEP : QUESTION_STEP,
+	PLAYER_MAXIMUM : PLAYER_MAXIMUM
 });
 quizModule.run(function ($rootScope, CONSTANTS) {
 	$rootScope.CONSTANTS = CONSTANTS;

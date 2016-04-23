@@ -48,6 +48,30 @@ quizModule.config(function ($urlRouterProvider, $stateProvider, $locationProvide
 			controller: 'AdminQuestionController',
 			controllerAs: 'qe'
 		})
+		.state('admin.publish',{
+			url: '/publish',
+			templateUrl : ADMIN_TEMPLATE_PATH + '/publish/list.html',
+			controller: 'AdminQuizController',
+			controllerAs: 'qi'
+		})
+		.state('admin.publishDetail',{
+			url: '/publish/:quizId',
+			templateUrl: ADMIN_TEMPLATE_PATH + '/publish/detail.html',
+			controller: 'AdminQuizController',
+			controllerAs: 'qi'
+		})
+		.state('monitor',{
+			url : '/monitor/:quizId',
+			templateUrl: MONITOR_TEMPLATE_PATH + '/start.html',
+			controller: 'MonitorController',
+			controllerAs: 'mo'
+		})
+		.state('play',{
+			url: '/play/:quizId',
+			templateUrl: PLAYER_TEMPLATE_PATH + '/start.html',
+			controller: 'PlayerController',
+			controllerAs: 'pa'
+		})
 		.state('login',{
 			url : '/login',
 			templateUrl: ADMIN_TEMPLATE_PATH + '/authen/login.html',

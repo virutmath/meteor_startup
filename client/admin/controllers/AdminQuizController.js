@@ -1,4 +1,4 @@
-quizModule.controller("AdminQuizController", function($scope, $state, $reactive, $stateParams, $window){
+quizModule.controller("AdminQuizController", function($scope, $state, $reactive, $stateParams, $window, $http){
 	let reactiveContext = $reactive(this).attach($scope);
 	if (!Meteor.userId()) {
 		$state.go('login');
@@ -24,7 +24,9 @@ quizModule.controller("AdminQuizController", function($scope, $state, $reactive,
 		});
 	};
 	reactiveContext.helpers({
-		listQuiz : ()=>QuizCollection.find()
+		currentQuiz: ()=>QuizCollection.findOne({_id : $stateParams.quizId}),
+		listQuiz : ()=>QuizCollection.find(),
+		listQuestion: ()=>QuestionCollection.find({quiz : $stateParams.quizId})
 	});
 	this.deleteQuiz = function(quiz) {
 		if ($window.confirm("Do you want delete this question?")) {
@@ -36,6 +38,17 @@ quizModule.controller("AdminQuizController", function($scope, $state, $reactive,
 				}
 			})
 		}
+	};
+	this.detailPublish = function(quiz) {
+		//generate short url
+		getShortLink(quiz,function(err, shortUrl) {
+			if(err) {
+				console.log(err);
+				return false;
+			}else{
+				$state.go('admin.publishDetail',{quizId : quiz._id});
+			}
+		});
 	};
 	function saveQuiz(callback) {
 		if(!selfCtrl.theQuiz.time) {
@@ -68,6 +81,27 @@ quizModule.controller("AdminQuizController", function($scope, $state, $reactive,
 			}
 
 		});
-
+	}
+	function getShortLink(quiz,callback) {
+		if(!quiz) {
+			return callback(new Error("Event not found"))
+		}
+		if(!quiz.shortUrl) {
+			$http.post(GOOGLEAPI_SHORTENER_URL, JSON.stringify({
+				longUrl: APP_DOMAIN + $state.href('monitor',{quizId : quiz._id})
+			})).then((resp)=> {
+				//save to quiz
+				QuizCollection.update({_id : quiz._id}, {
+					$set : { shortUrl : resp.data.id}
+				}, function(err, result) {
+					if(err) {
+						return callback(err);
+					}
+					return callback(null,resp.data.id);
+				});
+			});
+		}else{
+			callback(null,quiz.shortUrl);
+		}
 	}
 });
