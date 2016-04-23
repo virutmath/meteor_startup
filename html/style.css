@@ -1,0 +1,66 @@
+.mg-top-20 {
+    margin-top: 20px;
+}
+.gamer-embark {
+    margin-top: 20px;
+}
+.gamer-embark-item {
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+.gamer-embark-item:nth-child(1) {
+    color: #555;   
+    animation-name: txtin;
+    animation-duration: 2s;
+}
+.gamer-embark-item:nth-child(2) {
+    color: #777;   
+}
+.gamer-embark-item:nth-child(3) {
+    color: #999;   
+}
+.gamer-embark-item:nth-child(4) {
+    color: #aaa;   
+}
+.gamer-embark-item:nth-child(5) {
+    color: #ccc;   
+}
+@keyframes txtin {
+    from {font-size: 24px;}
+    to {font-size: 28px;}
+}
+
+.qrcode {
+    margin-top: 20px;
+}
+.game-question {
+    font-size: 32px;
+}
+.game-answer , .game-answer button{
+    font-size: 24px;
+}
+.game-countdown {
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    margin: 0px auto;
+    text-align: center;
+    font-size: 44px;
+    font-weight: bold;
+    position: relative;
+}
+.game-countdown .cd {
+    position: absolute;
+    top: calc(50% - 22px);
+    text-align: center;
+    width: 100%;
+}
+.form-embark label {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.form-embark .btn {
+    width: 100%;
+}
