@@ -7,12 +7,17 @@ quizModule.config(function ($urlRouterProvider, $stateProvider, $locationProvide
 
 
 	$stateProvider
-
 		.state('admin', {
 			url: '/admin',
 			templateUrl: ADMIN_TEMPLATE_PATH + '/admin.html',
 			controller: 'AdminController',
-			controllerAs: 'db'
+			controllerAs: 'ad'
+		})
+		.state('login',{
+			url : '/login',
+			templateUrl: ADMIN_TEMPLATE_PATH + '/authen/login.html',
+			controller: 'AuthenController',
+			controllerAs : 'ac'
 		});
 	
 	$urlRouterProvider.otherwise('/home');
