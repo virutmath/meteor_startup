@@ -10,10 +10,13 @@ Meteor.publish('quiz-list-creator', function (quizId) {
 });
 Meteor.publish('question-list-creator', function (quizId) {
 	if (this.userId && quizId && Roles.userIsInRole(this.userId, ['admin', 'creator'])) {
-		var quiz = QuizCollection.find({owner: this.userId, _id: quizId}).fetch();
+		var quiz = QuizCollection.find({user: this.userId, _id: quizId}).fetch();
 		if (quiz) {
-			return QuizCollection.find({quiz_id: quizId});
+			return QuestionCollection.find({quiz: quizId});
+		}else{
+			return false;
 		}
+	}else{
+		return false;
 	}
-	return [];
 });

@@ -42,7 +42,10 @@ quizModule.config(function ($urlRouterProvider, $stateProvider, $locationProvide
 			controllerAs: 'qe'
 		})
 		.state('admin.questionEdit',{
-			url: '/question/edit/:questionId'
+			url: '/question/edit/:quizId/:questionId',
+			templateUrl: ADMIN_TEMPLATE_PATH + '/question/edit.html',
+			controller: 'AdminQuestionController',
+			controllerAs: 'qe'
 		})
 		.state('login',{
 			url : '/login',

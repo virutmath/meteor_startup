@@ -8,10 +8,11 @@ quizModule.controller("AdminQuizController", function($scope, $state, $reactive)
 		title : "",
 		user : Meteor.userId(),
 		theme : QUIZ_THEME.light,
-		shortUrl: ""
+		shortUrl: "",
+		type : QUIZ_TYPE.knockout
 	};
 	// console.log(selfCtrl.theQuiz);
-	this.createQuiz = function() {
+	this.postCreateQuiz = function() {
 		saveQuiz((error,quizId)=>{
 			if(error) {
 				console.log(error.message);
@@ -24,6 +25,7 @@ quizModule.controller("AdminQuizController", function($scope, $state, $reactive)
 		if(!selfCtrl.theQuiz.time) {
 			selfCtrl.theQuiz.time = 30;
 		}
+		selfCtrl.theQuiz.createdAt = selfCtrl.theQuiz.updatedAt = Date.now();
 		QuizCollection.insert(selfCtrl.theQuiz, (error, id)=>{
 			if(error) {
 				return callback(error);

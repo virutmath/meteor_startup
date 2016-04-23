@@ -1,12 +1,12 @@
 <div class="page-header">
    <h1>Create your event</h1>
 </div>
-<form ng-submit="qi.createQuiz()">
+<form ng-submit="qi.postCreateQuiz()">
 
 
    <div class="form-group">
       <label>Event name</label>
-      <input type="text" class="form-control" ng-model="qi.theQuiz.title" placeholder="Input your event name">
+      <input type="text" class="form-control" required ng-model="qi.theQuiz.title" placeholder="Input your event name">
    </div>
    <div class="form-group">
       <label>Time of each question</label>
@@ -29,12 +29,12 @@
       <label>Event type</label>
       <div class="row">
          <div class="col-xs-3">
-            <input type="radio" value="1" ng-model="qi.theQuiz.type">
-            Ranking by score
-         </div>
-         <div class="col-xs-3">
             <input type="radio" value="2" ng-model="qi.theQuiz.type">
             Knockout
+         </div>
+         <div class="col-xs-3">
+            <input type="radio" value="1" ng-model="qi.theQuiz.type">
+            Ranking by score
          </div>
       </div>
    </div>
@@ -42,7 +42,7 @@
       <label>Event description</label>
       <div class="row">
          <div class="col-xs-12">
-            <textarea ng-model="qi.theQuiz.description" cols="30" rows="10"></textarea>
+            <textarea ng-model="qi.theQuiz.description" placeholder="Input information for your event here..." rows="10" class="form-control"></textarea>
          </div>
       </div>
    </div>

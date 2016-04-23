@@ -1,0 +1,65 @@
+<div class="page-header">
+   <h1>{{qe.currentQuiz.title}}
+      <small>Edit question</small>
+   </h1>
+</div>
+<form>
+   <h4>[ Q{{qe.currentQuestion.number}} ]</h4>
+   <div class="form-group">
+      <label>Content of question</label>
+      <input class="form-control" type="text" required ng-model="qe.currentQuestion.content" maxlength="100"
+             placeholder="Maximum 100 characters">
+   </div>
+   <div class="form-group">
+      <label>Question type</label>
+      <select ng-model="qe.currentQuestion.type" id="question-type" class="form-control" convert-to-number>
+         <option value="1">Text only</option>
+         <option value="2">Text question and image answer</option>
+         <option value="3">Image question and text answer</option>
+         <option value="4">Sound question and text answer</option>
+         <option value="5">Image question and answer</option>
+      </select>
+   </div>
+   <div class="form-group">
+      <div class="row">
+         <div class="col-xs-12">
+            <label>Question's answers</label>
+         </div>
+      </div>
+      <div class="row" ng-repeat="answerLabel in ['A','B','C','D']">
+         <div class="col-xs-3">
+            <span>Answer {{answerLabel}}</span>
+         </div>
+         <div class="col-xs-9">
+            <input type="text" ng-model="qe.currentQuestion.answers[$index]" class="form-control" placeholder="Answer {{answerLabel}}...">
+         </div>
+         <div class="col-xs-12">
+            <div class="margin-10b"></div>
+         </div>
+      </div>
+   </div>
+   <div class="form-group">
+      <label>Choose correct answer</label>
+      <select ng-model="qe.currentQuestion.correctAnswer" class="form-control">
+         <option value="A">Answer A</option>
+         <option value="B">Answer B</option>
+         <option value="C">Answer C</option>
+         <option value="D">Answer D</option>
+      </select>
+   </div>
+   <div class="form-group" ng-if="qe.currentQuiz.type == CONSTANTS.QUIZ_TYPE.ranking">
+      <label>Question score</label>
+      <input type="text" ng-model="qe.currentQuestion.score" required class="form-control">
+   </div>
+   <div class="row">
+      <div class="col-xs-4">
+         <button class="btn btn-primary btn-block" ng-click="qe.postEditQuestion()">Save & Return list</button>
+      </div>
+      <div class="col-xs-4">
+         <button class="btn btn-primary btn-block" ng-click="qe.editNext()">Save & Create other</button>
+      </div>
+      <div class="col-xs-4">
+         <button class="btn btn-default btn-block" ng-click="qe.backPreviousPage()">Back previous page</button>
+      </div>
+   </div>
+</form>

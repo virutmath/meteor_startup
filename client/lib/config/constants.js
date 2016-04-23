@@ -7,3 +7,14 @@ QUIZ_THEME = {
 	light : 1,
 	dark : 2
 };
+QUIZ_TYPE = {
+	ranking : 1,
+	knockout : 2
+};
+QUESTION_TYPE = {
+	text : 1,
+	image : 2,
+	textImage : 3,
+	sound : 4,
+	imageAll: 5
+};

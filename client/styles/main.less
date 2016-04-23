@@ -1,0 +1,14 @@
+//max level of fast margin as margin-10b, margin-20b...
+@fast-margin-max : 12;
+
+.make_fast_margin(@step) when (@step > 0) {
+  @px: @step * 5px;
+  @class: @step * 5;
+  @item : ~".margin-@{class}b";
+  @{item} {
+    margin-bottom: @px;
+  }
+  .make_fast_margin(@step - 1);
+}
+
+.make_fast_margin(@fast-margin-max);
