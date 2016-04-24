@@ -26,6 +26,7 @@
             <td class="text-center">{{quiz.type == CONSTANTS.QUIZ_TYPE.ranking ? "Ranking" : "Knockout"}}</td>
             <td class="text-center">
                <a ui-sref="admin.quizEdit({quizId : quiz._id})">Edit</a>
+               <a ui-sref="admin.questionList({quizId : quiz._id})">Question</a>
                <a href="javascript:;" ng-click="qi.deleteQuiz(quiz)">Delete</a>
             </td>
          </tr>
