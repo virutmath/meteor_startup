@@ -37,6 +37,14 @@ Schema.User = new SimpleSchema({
 });
 Meteor.users.attachSchema(Schema.User);
 
+Schema.QuizStatus = new SimpleSchema({
+	label: {
+		type: String
+	},
+	value: {
+		type: Number
+	}
+});
 Schema.Quiz = new SimpleSchema({
 	title: {
 		type: String,
@@ -71,6 +79,10 @@ Schema.Quiz = new SimpleSchema({
 	},
 	updatedAt: {
 		type: Date
+	},
+	status: {
+		type : Schema.QuizStatus,
+		optional : true
 	}
 });
 QuizCollection.attachSchema(Schema.Quiz);

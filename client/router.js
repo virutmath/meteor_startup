@@ -66,6 +66,12 @@ quizModule.config(function ($urlRouterProvider, $stateProvider, $locationProvide
 			controller: 'MonitorController',
 			controllerAs: 'mo'
 		})
+		.state('monitorStep',{
+			url: '/monitor/step/:quizId',
+			templateUrl: MONITOR_TEMPLATE_PATH + '/step.html',
+			controller: 'MonitorController',
+			controllerAs: 'mo'
+		})
 		.state('play',{
 			url: '/play/:quizId',
 			templateUrl: PLAYER_TEMPLATE_PATH + '/start.html',
@@ -75,6 +81,12 @@ quizModule.config(function ($urlRouterProvider, $stateProvider, $locationProvide
 		.state('playWait',{
 			url: '/play/wait/:quizId/:playerId',
 			templateUrl: PLAYER_TEMPLATE_PATH + '/wait.html',
+			controller: 'PlayerController',
+			controllerAs: 'pa'
+		})
+		.state('playStep',{
+			url: '/play/step/:quizId/:playerId',
+			templateUrl : PLAYER_TEMPLATE_PATH + '/step.html',
 			controller: 'PlayerController',
 			controllerAs: 'pa'
 		})

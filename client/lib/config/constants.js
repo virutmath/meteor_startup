@@ -11,6 +11,13 @@ QUIZ_TYPE = {
 	ranking : 1,
 	knockout : 2
 };
+QUIZ_STATUS = {
+	'playing': {label: 'Playing', value: 4},
+	'pending': {label: 'Pending', value: 3},
+	'finish': {label: 'Finish', value: 2},
+	'active': {label: 'Public', value: 1},
+	'not_active': {label: 'Not Active', value: 0}
+};
 QUESTION_TYPE = {
 	text : 1,
 	image : 2,

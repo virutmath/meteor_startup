@@ -1,0 +1,29 @@
+<div class="container-fluid" id="player-view">
+   <div class="row">
+      <div class="col-xs-12" id="header-player">
+         {{pa.currentQuiz.title}}
+      </div>
+      <div class="col-xs-12">
+         <div class="row mg-top-20">
+            <div class="col-xs-12">
+               <div class="game-question">{{pa.currentQuestion.content}}</div>
+            </div>
+            <div class="col-xs-12">
+               <h4>Time: <span id="countdown_player">15</span> seconds</h4>
+            </div>
+         </div>
+         <div class="row mg-top-20">
+            <div class="game-answer list-group">
+               <a href="#" class="list-group-item row" ng-repeat="answer in pa.currentQuestion.answers" ng-click="pa.chooseAnswer($index)">
+                  <div class="col-xs-11">{{answer}}</div>
+                  <div class="clearfix"></div>
+               </a>
+            </div>
+         </div>
+         <div id="result" ng-if="pa.isShowCorrectAnswer" ng-class="pa.currentPlayerAnswer.correct ? 'correct' : ''">
+            <div ng-show="pa.currentPlayerAnswer.correct">Correct</div>
+            <div ng-hide="pa.currentPlayerAnswer.correct">Not correct</div>
+         </div>
+      </div>
+   </div>
+</div>

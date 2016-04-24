@@ -1,17 +1,20 @@
 <div class="container-fluid">
    <div class="page-header">
-      <h2 class="text-center">{{mo.currentQuiz.title}}</h2>
+      <h2 class="text-center" style="color : #f0362f;font-weight: bold;">{{mo.currentQuiz.title}}</h2>
    </div>
    <div class="row">
       <div class="col-xs-7">
-         <div class="gamer-embark" ng-if="!mo.listPlayer.length">
-            Moving moving now....
+         <div class="gamer-embark text-center animateText" style="" ng-if="!mo.listPlayer.length">
+            Join and fight. Right now!
          </div>
          <div class="gamer-embark">
             <div class="gamer-embark-item alert" role="alert"
                  ng-repeat="player in mo.visiblePlayer">
                {{player.nickname}} joined
             </div>
+            <button class="btn btn-danger btn-block" ng-click="mo.startQuiz()">
+               Start game
+            </button>
          </div>
       </div>
       <div class="col-xs-5">

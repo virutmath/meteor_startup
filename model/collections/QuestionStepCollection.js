@@ -13,7 +13,7 @@ QuestionStepCollection.allow({
 	},
 	update: function (userId, document, fieldNames, modifier) {
 		//only update question step if userId create quiz
-		if (QuestionStepCollection.findOne({_id: document.quiz, user: userId})) {
+		if (QuizCollection.findOne({_id: document.quiz, user: userId})) {
 			return true;
 		} else {
 			console.log('You have not permission in this quiz');
@@ -21,6 +21,6 @@ QuestionStepCollection.allow({
 		}
 	},
 	remove: function (userId, document) {
-		return !!QuestionStepCollection.findOne({_id: document.quiz, user: userId});
+		return !!QuizCollection.findOne({_id: document.quiz, user: userId});
 	}
 });
