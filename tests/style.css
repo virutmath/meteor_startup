@@ -9,21 +9,21 @@
     font-size: 24px;
 }
 .gamer-embark-item:nth-child(1) {
-    color: #555;   
+    color: #555;
     animation-name: txtin;
     animation-duration: 2s;
 }
 .gamer-embark-item:nth-child(2) {
-    color: #777;   
+    color: #777;
 }
 .gamer-embark-item:nth-child(3) {
-    color: #999;   
+    color: #999;
 }
 .gamer-embark-item:nth-child(4) {
-    color: #aaa;   
+    color: #aaa;
 }
 .gamer-embark-item:nth-child(5) {
-    color: #ccc;   
+    color: #ccc;
 }
 @keyframes txtin {
     from {font-size: 24px;}

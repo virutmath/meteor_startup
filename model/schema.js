@@ -137,6 +137,9 @@ Schema.Player = new SimpleSchema({
 	knockout : {
 		type : Boolean,
 		defaultValue : false
+	},
+	createdAt : {
+		type : Date
 	}
 });
 PlayerCollection.attachSchema(Schema.Player);

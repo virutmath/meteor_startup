@@ -1,10 +1,10 @@
 //max level of fast margin as margin-10b, margin-20b...
-@fast-margin-max : 12;
+@fast-margin-max: 12;
 
 .make_fast_margin(@step) when (@step > 0) {
   @px: @step * 5px;
   @class: @step * 5;
-  @item : ~".margin-@{class}b";
+  @item: ~".margin-@{class}b";
   @{item} {
     margin-bottom: @px;
   }
@@ -13,6 +13,7 @@
 
 .make_fast_margin(@fast-margin-max);
 #dashboard-admin {
+  padding-top: 50px;
   .quiz-publish-detail {
     font-size: 16px;
     line-height: 1.7em;
@@ -20,12 +21,6 @@
   /*
  * Base structure
  */
-
-  /* Move down content because we have a fixed navbar that is 50px tall */
-  body {
-    padding-top: 50px;
-  }
-
 
   /*
    * Global add-ons
@@ -85,7 +80,6 @@
     background-color: #428bca;
   }
 
-
   /*
    * Main content
    */
@@ -102,7 +96,6 @@
   .main .page-header {
     margin-top: 0;
   }
-
 
   /*
    * Placeholder dashboard ideas
@@ -127,44 +120,50 @@
 .mg-top-20 {
   margin-top: 20px;
 }
+
 .gamer-embark {
   margin-top: 20px;
 }
+
 .gamer-embark-item {
   margin-bottom: 5px;
   font-size: 24px;
 }
+
 .gamer-embark-item:nth-child(1) {
-  color: #555;
-  animation-name: txtin;
-  animation-duration: 2s;
+  background-color: #4cae4c;
+  color: #fff;
 }
+
 .gamer-embark-item:nth-child(2) {
-  color: #777;
+  color: #666;
 }
+
 .gamer-embark-item:nth-child(3) {
   color: #999;
 }
+
 .gamer-embark-item:nth-child(4) {
   color: #aaa;
 }
+
 .gamer-embark-item:nth-child(5) {
   color: #ccc;
 }
-@keyframes txtin {
-  from {font-size: 24px;}
-  to {font-size: 28px;}
-}
+
 
 .qrcode {
   margin-top: 20px;
 }
+
 .game-question {
   font-size: 32px;
 }
-.game-answer , .game-answer button{
+
+.game-answer, .game-answer button {
   font-size: 24px;
 }
+
 .game-countdown {
   border: 1px solid #ccc;
   border-radius: 50%;
@@ -176,17 +175,20 @@
   font-weight: bold;
   position: relative;
 }
+
 .game-countdown .cd {
   position: absolute;
   top: calc(50% - 22px);
   text-align: center;
   width: 100%;
 }
+
 .form-embark label {
   width: 100%;
   text-align: center;
   margin-bottom: 10px;
 }
+
 .form-embark .btn {
   width: 100%;
 }

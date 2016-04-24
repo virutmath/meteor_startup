@@ -88,7 +88,7 @@ quizModule.controller("AdminQuizController", function($scope, $state, $reactive,
 		}
 		if(!quiz.shortUrl) {
 			$http.post(GOOGLEAPI_SHORTENER_URL, JSON.stringify({
-				longUrl: APP_DOMAIN + $state.href('monitor',{quizId : quiz._id})
+				longUrl: APP_DOMAIN + $state.href('play',{quizId : quiz._id})
 			})).then((resp)=> {
 				//save to quiz
 				QuizCollection.update({_id : quiz._id}, {

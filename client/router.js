@@ -72,6 +72,12 @@ quizModule.config(function ($urlRouterProvider, $stateProvider, $locationProvide
 			controller: 'PlayerController',
 			controllerAs: 'pa'
 		})
+		.state('playWait',{
+			url: '/play/wait/:quizId/:playerId',
+			templateUrl: PLAYER_TEMPLATE_PATH + '/wait.html',
+			controller: 'PlayerController',
+			controllerAs: 'pa'
+		})
 		.state('login',{
 			url : '/login',
 			templateUrl: ADMIN_TEMPLATE_PATH + '/authen/login.html',
